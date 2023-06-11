@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Subscriber extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'quantity', 'product_id'];
+    protected $guarded = [];
 
 }
