@@ -1,5 +1,6 @@
 
 export function request(method, url, data = {}) {
+  console.log(data, url, 'iNFO')
   return fetch(url, {
     method,
     headers: {

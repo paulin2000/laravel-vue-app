@@ -1,0 +1,22 @@
+- creation de controllers -
+    php artisan make:controller MyController
+
+- creation de model -
+    php artisan make:model Product -m
+    "-m" est un paramètre facultatif qui signifie que nous souhaitons également générer une migration pour ce modèle. La migration sera utilisée pour créer la table correspondante dans la base de données.
+
+- migration -
+    php artisan migrate
+-   $table->foreignIdFor(\App\Models\User::class, 'user_id');
+    $table->foreignId('product_id')->references('id')->on('products');
+        En résumé, la méthode "foreignIdFor" crée une colonne de clé étrangère et ajoute également une contrainte de clé étrangère correspondante, tandis que la méthode "foreignId" crée simplement une colonne de clé étrangère sans contrainte de clé étrangère correspondante.
+
+        Une contrainte de clé étrangère est une règle définie dans une base de données relationnelle pour garantir l'intégrité des données lorsqu'une colonne fait référence à une autre colonne (ou à une clé primaire) dans une table différente.
+
+        La clé étrangère est une colonne qui fait référence à la clé primaire d'une autre table. La contrainte de clé étrangère est une règle qui garantit que la valeur de la clé étrangère dans une table enfant correspond à une valeur de clé primaire dans une table parente.
+
+        Par exemple, si vous avez deux tables dans votre base de données, "orders" et "customers", et que la table "orders" a une colonne "customer_id" qui fait référence à la clé primaire "id" de la table "customers", vous pouvez définir une contrainte de clé étrangère pour garantir que chaque valeur de "customer_id" dans la table "orders" correspond à une valeur de "id" dans la table "customers".
+
+        Les contraintes de clé étrangère sont importantes car elles garantissent l'intégrité des données en empêchant les valeurs de clé étrangère invalides d'être insérées dans une table enfant. Lorsque vous essayez d'insérer des données dans la table enfant qui ne respectent pas la contrainte de clé étrangère, une erreur se produit et l'opération est annulée.
+
+

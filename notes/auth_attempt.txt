@@ -1,0 +1,22 @@
+ vous pouvez ajouter un deuxième argument à la fonction attempt() dans Laravel. Ce deuxième argument est un tableau d'options qui vous permet de personnaliser le comportement de la fonction attempt(). Voici un exemple de code qui montre comment ajouter un deuxième argument à la fonction attempt():
+
+
+if (Auth::attempt($credentials, $remember)) {
+    // L'utilisateur est connecté avec succès.
+}
+
+Dans cet exemple, $remember est un booléen qui indique si le cookie de rappel doit être défini pour maintenir la session ouverte après la fermeture du navigateur.
+
+Il existe également d'autres options que vous pouvez définir dans le deuxième argument, notamment :
+
+bool $remember: permet de définir si la session doit être maintenue après la fermeture du navigateur.
+bool $login: permet de forcer la connexion de l'utilisateur après l'authentification réussie.
+bool $once: permet de ne pas persister la session dans la base de données, utile pour les tests.
+array $attributes: permet de spécifier des attributs supplémentaires à associer à la session utilisateur.
+Par exemple, si vous voulez que la session utilisateur ne soit pas persistée dans la base de données, vous pouvez appeler la fonction attempt() de cette façon :
+
+
+if (Auth::attempt($credentials, false, true)) {
+    // L'utilisateur est connecté avec succès.
+}
+Dans cet exemple, le deuxième argument est false, ce qui signifie que la session ne doit pas être maintenue après la fermeture du navigateur. Le troisième argument est true, ce qui signifie que la session ne doit pas être persistée dans la base de données.

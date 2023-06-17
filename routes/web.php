@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +23,9 @@ Route::middleware(['guestOrVerified'])->group(function () {
 
   Route::prefix('/cart')->name('cart.')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('index');
+    Route::post('/add/{product:slug}', [CartController::class, 'add'])->name('add');
+    Route::post('/remove/{product:slug}', [CartController::class, 'remove'])->name('remove');
+    Route::post('/update-quantity/{product:slug}', [CartController::class, 'updateQuantity'])->name('update-quantity');
   });
 });
 Route::get('/dashboard', function () {
@@ -30,9 +33,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile');
-  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+  Route::get('/profile', [ProfilController::class, 'view'])->name('profile.view');
+  Route::patch('/profile', [ProfilController::class, 'update'])->name('profile.update');
+  Route::delete('/profile', [ProfilController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__ . '/auth.php';

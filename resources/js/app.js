@@ -52,6 +52,7 @@ document.addEventListener("alpine:init", async () => {
   }));
 
   Alpine.data("productItem", (product) => {
+    console.log(product, 'PRODUCT')
     return {
       product,
       addToCart(quantity = 1) {
@@ -90,4 +91,4 @@ document.addEventListener("alpine:init", async () => {
 });
 
 
-Alpine.start();
+Alpine.start();     

@@ -1,0 +1,19 @@
+Un seeder est une fonctionnalité de Laravel qui permet de remplir une base de données avec des données fictives ou de test. Les seeders sont utilisés pour automatiser le processus de remplissage d'une base de données avec des données qui peuvent être utilisées pour le développement, les tests ou pour une démonstration.
+
+Les seeders sont créés sous forme de classes PHP dans le dossier database/seeds de votre application Laravel. Chaque seeder représente une table de la base de données que vous souhaitez remplir avec des données.
+
+Pour créer un seeder, vous pouvez exécuter la commande suivante dans votre terminal :
+
+
+-- php artisan make:seeder NomDeVotreSeeder
+
+Cela créera un nouveau fichier de seeder dans le dossier database/seeds de votre application Laravel. Vous pouvez ensuite ajouter des données fictives ou de test à la méthode run() du seeder en utilisant des fonctions de génération de données, telles que factory(), random(), faker(), etc.
+
+Pour exécuter le seeder et remplir la base de données avec des données fictives, vous pouvez utiliser la commande suivante dans votre terminal :
+
+
+-- php artisan db:seed --class=NomDeVotreSeeder
+Cela exécutera le seeder spécifié et remplira la table correspondante avec les données générées. Vous pouvez également exécuter plusieurs seeders en même temps ou tous les seeders de votre application en utilisant les commandes
+
+-- php artisan db:seed ou
+-- php artisan migrate:fresh --seed pour réinitialiser et remplir la base de données avec les derniers seeders.

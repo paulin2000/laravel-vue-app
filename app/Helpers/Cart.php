@@ -28,7 +28,7 @@ class Cart
             return CartItem::where('user_id', $user->id)->sum('quantity');
         } else {
             $cartItems = self::getCookieCartItems();
-
+   
             return array_reduce(
                 $cartItems,
                 fn($carry, $item) => $carry + $item['quantity'],
@@ -101,4 +101,4 @@ class Cart
 
         return [$products, $cartItems];
     }
-}
+  }    
